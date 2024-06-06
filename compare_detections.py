@@ -5,15 +5,23 @@ import os
 def extract_boxes(image_path):
     """
     Extract bounding boxes from an image with annotations.
-    For the purpose of this example, we'll assume you have a way to get these boxes.
+    This function assumes that bounding boxes are drawn on the image.
     """
-    # Placeholder for actual extraction logic
-    # This should be replaced with actual extraction from annotations
-    return [
-        # Example format of bounding boxes
-        {"x1": 10, "y1": 20, "x2": 100, "y2": 200},
-        {"x1": 50, "y1": 60, "x2": 150, "y2": 160}
-    ]
+    image = cv2.imread(image_path)
+    if image is None:
+        print(f"Image at {image_path} could not be loaded.")
+        return []
+
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    _, thresh = cv2.threshold(gray, 1, 255, cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    boxes = []
+    for contour in contours:
+        x, y, w, h = cv2.boundingRect(contour)
+        boxes.append({"x1": x, "y1": y, "x2": x + w, "y2": y + h})
+
+    return boxes
 
 def compare_boxes(boxes1, boxes2, threshold=0.01):
     """
