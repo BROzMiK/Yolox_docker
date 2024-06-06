@@ -22,4 +22,4 @@ RUN pip install -U pip && pip install -r requirements.txt
 
 RUN python3 setup.py develop
 
-CMD ["python", "tools/demo.py", "image", "-n", "yolox-s", "-c", "yolox_s.pth", "--path", "dog.jpg", "--conf", "0.25", "--nms", "0.45", "--tsize", "640", "--save_result", "--device", "cpu"]
+CMD ["python", "tools/demo.py", "image", "-n", "yolox-s", "-c", "yolox_s.pth", "--path", "assets/dog.jpg", "--conf", "0.25", "--nms", "0.45", "--tsize", "640", "--save_result", "--device", "cpu"]
