@@ -27,4 +27,4 @@ This repo is an implementation of PyTorch version YOLOX and docker version.
 
 ## Test
 1. Put image from "outputs" folder in the root folder.
-2. Run "compare_detections.py"
+2. Run 'compare_detections.py'
