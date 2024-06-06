@@ -20,7 +20,7 @@ This repo is an implementation of PyTorch version YOLOX and docker version of YO
 ```shell script
   git clone https://github.com/BROzMiK/Yolox_docker.git
 ```
-2. Download and put this model in the root folder :
+2. Download and put the model in the root folder :
 [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.pth)
 3. Launch Docker Desktop
 4. Run `build.bat` and wait about 10-20 min
